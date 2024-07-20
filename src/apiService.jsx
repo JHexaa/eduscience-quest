@@ -12,14 +12,20 @@ const apiService = {
   login: (email, password) => {
     return axiosInstance.post('/login', { email, password });
   },
-  /*logout: () => {
-    return axiosInstance.get('/logout');
-  },*/
   register: (userData) => {
     return axiosInstance.post('/register', userData);
   },
   fetchUsers: () => {
     return axiosInstance.get('/usuarios');
+  },
+  getUser: (id) => {
+    return axiosInstance.get(`/usuarios/${id}`);
+  },
+  updateUser: (id, userData) => {
+    return axiosInstance.put(`/usuarios/${id}`, userData);
+  },
+  deleteUser: (id) => {
+    return axiosInstance.delete(`/usuarios/${id}`);
   },
 };
 

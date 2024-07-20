@@ -417,10 +417,12 @@ table th {
 .editForm {
   display: flex;
   flex-direction: column;
+  color: #000;
 }
 
 .editForm input {
   padding: 10px;
+  margin: 5px;
 }
 
 
