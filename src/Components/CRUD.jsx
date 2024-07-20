@@ -81,9 +81,12 @@ const CRUD = () => {
         const userID = sessionStorage.getItem('userID');
         const userNombre = sessionStorage.getItem('userNombre');
         const userApellido = sessionStorage.getItem('userApellido');
+        const userTipo = sessionStorage.getItem('userTipo');
         if (!userID) {
             navigate('/login');
-        } else {
+        }else if (userTipo!='Admin'){
+            navigate('/principal')
+        }else {
             setUser({ nombre: userNombre, apellido: userApellido });
         }
     }, [navigate]);

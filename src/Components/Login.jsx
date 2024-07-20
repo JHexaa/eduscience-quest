@@ -9,7 +9,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
   const [messageColor, setMessageColor] = useState('');
-  const isAdmin = email && password === "admin";
+  const isAdmin = email === "admin";
   const navigate = useNavigate();
 
   // Handle login
@@ -22,6 +22,7 @@ const Login = () => {
       sessionStorage.setItem('userID', response.data.id);
       sessionStorage.setItem('userNombre', response.data.nombre);
       sessionStorage.setItem('userApellido', response.data.apellido);
+      sessionStorage.setItem('userTipo', response.data.tipo);
       if (isAdmin) {
         setTimeout(() => {
           navigate('/crud'); // SI ES ADMIN LO MANDA AL CRUD
