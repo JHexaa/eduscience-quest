@@ -29,7 +29,7 @@ const NavItem = ({ to, icon }) => {
         to={to}
         activeClassName="bg-blue-900"
       >
-        <img src={icon} alt="icon" className='text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-700' />
+        <img src={icon} alt="icon" className='text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-main' />
       </NavLink>
     </li>
   );
