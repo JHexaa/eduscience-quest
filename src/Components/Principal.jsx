@@ -1,13 +1,13 @@
 import React from 'react'
-import Navbar from '../Components/Navbar';
+import Navbar from '../Components/Navbar'
 
 const Principal = () => {
+
+
     return (
         <>
-            <Navbar/>
-            <div>
-                <h1>Principal</h1>
-        </div>
+            <Navbar />
+            <h1>PRINCIPAL</h1>
         </>
     )
 }

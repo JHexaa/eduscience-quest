@@ -6,10 +6,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: {
-          DEFAULT: '#00C203'
+        main: {
+          DEFAULT: '#00C203',
+          HOVER: '#1c721c'
         },
-        bgnav:{
+        bg: {
           DEFAULT: '#232323'
         }
       }
