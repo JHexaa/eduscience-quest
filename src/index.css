@@ -117,15 +117,13 @@ footer {
 
 /* Menu Principal */
 .cuerpo {
-  background-image: url(assets/images/fondo-menu-principal.jpg);
+  background-image: url(./assets//images/fondo-menu-principal.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  margin-top: 0;
 }
 
 .contenedor-menu {
   border-radius: 25px;
-  margin: 5%;
   background-color: rgba(34, 48, 33, 0.658);
   align-content: center;
   color: white;
