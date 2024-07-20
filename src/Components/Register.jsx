@@ -1,46 +1,104 @@
 // src/Register.js
 import React, { useState } from 'react';
 import apiService from '../apiService';
+import { useNavigate } from 'react-router-dom';
+import Logo from '../assets/images/Logo-bienvenido.png'
 
 const Register = () => {
-  const [nombre, setNombre] = useState('');
-  const [apellido, setApellido] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [message, setMessage] = useState('');
+    const [formData, setFormData] = useState({
+        nombre: '',
+        apellido: '',
+        email: '',
+        password: ''
+    });
+    const [responseMessage, setResponseMessage] = useState('');
+    const [messageColor, setMessageColor] = useState('');
+    const navigate = useNavigate();
 
-  const handleRegister = async () => {
-    try {
-      const response = await apiService.register({
-        nombre,
-        apellido,
-        email: email.toLowerCase(),
-        password
-      });
-      setMessage(response.data.message);
-    } catch (error) {
-      if (error.response && error.response.data.error) {
-        setMessage(error.response.data.error);
-      } else {
-        setMessage('El usuario ya existe');
-      }
-    }
-  };
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setFormData({
+            ...formData,
+            [name]: value
+        });
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        try {
+            const response = await apiService.register({
+                ...formData,
+                email: formData.email.toLowerCase()
+            });
+            setResponseMessage(response.data.message);
+            if (response.data.message === "Usuario registrado correctamente") {
+                setResponseMessage(response.data.message+".");
+                setMessageColor("text-green-500");
+                setTimeout(() => {
+                    navigate('/login');
+                }, 2000);
+            }
+        } catch (error) {
+            setResponseMessage('El usuario ya existe');
+            setMessageColor("text-red-500");
+        }
+    };
 
   return (
-    <div>
-      <h2>Register</h2>
-      <input type="text" placeholder="Nombre" value={nombre} onChange={(e) => setNombre(e.target.value)}/>
-      <br/>
-      <input type="text" placeholder="Apellido" value={apellido} onChange={(e) => setApellido(e.target.value)}/>
-      <br/>
-      <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
-      <br/>
-      <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-      <br/>
-      <button onClick={handleRegister}>Register</button>
-      {message && <p>{message}</p>}
-    </div>
+    <>
+      <div className="flex flex-col items-center justify-center h-screen">
+            <div className="login">
+                <div className="register-1">
+                    <h1 className="text-2xl">Registrar Cuenta</h1>
+                    <form id="registerForm" onSubmit={handleSubmit}>
+                        <input
+                            type="text"
+                            className="shadow appearance-none border rounded"
+                            name="nombre"
+                            placeholder="Nombre"
+                            value={formData.nombre}
+                            onChange={handleChange}
+                            required
+                        />
+                        <input
+                            type="text"
+                            className="shadow appearance-none border rounded"
+                            name="apellido"
+                            placeholder="Apellido"
+                            value={formData.apellido}
+                            onChange={handleChange}
+                            required
+                        />
+                        <input
+                            type="email"
+                            className="shadow appearance-none border rounded"
+                            name="email"
+                            placeholder="Correo Electronico"
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
+                        />
+                        <input
+                            type="password"
+                            className="shadow appearance-none border rounded"
+                            name="password"
+                            placeholder="Contraseña"
+                            value={formData.password}
+                            onChange={handleChange}
+                            required
+                        />
+                        <button type="submit" className='text-bg'>Registrarse</button>
+                    </form>
+                    {responseMessage && <p className={`text-l mt-5 mx-10 w-72 ${messageColor}`}>{responseMessage}</p>}
+                    <a href="/login" className="my-5 mx-10">Ya tienes cuenta? Haz click Aqui!</a>
+                </div>
+                <div className="login-2">
+                    <img src={Logo} className="w-72" alt="" />
+                </div>
+            </div>
+        </div>
+    </>
+    
   );
 };
 
