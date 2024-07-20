@@ -4,13 +4,19 @@ import logo from "../assets/svg/logo.svg"
 import user from "../assets/svg/user.svg"
 import faq from "../assets/svg/faq.svg"
 import bibl from "../assets/svg/bibl.svg"
-
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const principal = () => {
+    navigate('/principal')
+  }
   return (
     <>
       <nav className=" bg-bgnav flex justify-between align-center items-center h-40 py-8 mx-52">
-        <img className="w-80 " src={logo} alt="EduScience Quest" />
+        <a href={principal}>
+          <img className="w-80 " src={logo} alt="EduScience Quest" />
+        </a>
         <ul className="flex space-x-4">
           <NavItem to="/login" icon={user} />
           <NavItem to="/users" icon={faq} />

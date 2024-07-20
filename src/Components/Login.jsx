@@ -24,7 +24,7 @@ const Login = () => {
       sessionStorage.setItem('userApellido', response.data.apellido);
       if (isAdmin) {
         setTimeout(() => {
-          navigate('/'); // SI ES ADMIN LO MANDA AL CRUD
+          navigate('/crud'); // SI ES ADMIN LO MANDA AL CRUD
         }, 1500);
       }
       else {
