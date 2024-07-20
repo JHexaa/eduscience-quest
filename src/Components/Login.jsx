@@ -19,6 +19,9 @@ const Login = () => {
       console.log(response.data);
       setMessage('Inicio de sesión exitoso');
       setMessageColor("text-green-500");
+      sessionStorage.setItem('userID', response.data.id);
+      sessionStorage.setItem('userNombre', response.data.nombre);
+      sessionStorage.setItem('userApellido', response.data.apellido);
       if (isAdmin) {
         setTimeout(() => {
           navigate('/'); // SI ES ADMIN LO MANDA AL CRUD
