@@ -11,9 +11,9 @@ const Principal = () => {
     const [user, setUser] = useState(null);
     const navigate = useNavigate();
 
-    const ecosistema = () => {
-        navigate('/crud')
-    }
+    const handleNavigation = (path) => {
+        navigate(path);
+    };
 
     useEffect(() => {
         const userID = sessionStorage.getItem('userID');
@@ -43,7 +43,7 @@ const Principal = () => {
                         <div class="ecosistema text-center">
                             <h2>Ecosistemas</h2>
                             <img src={logoEco} />
-                            <button onClick={ecosistema} className="text-xl mt-6 px-20 rounded-xl py-3 bg-main text-white hover:bg-main-HOVER">Jugar</button>
+                            <button onClick={() => handleNavigation('/ecosistema')} className="text-xl mt-6 px-20 rounded-xl py-3 bg-main text-white hover:bg-main-HOVER">Jugar</button>
                         </div>
                         <div class="animales text-center">
                             <h2>Animales</h2>
