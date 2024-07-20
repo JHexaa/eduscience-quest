@@ -8,7 +8,7 @@ const Bienvenida = () => {
   const navigate = useNavigate();
 
   const beginGame = () => {
-    navigate('/login')
+    navigate('/principal')
   }
 
   return (
