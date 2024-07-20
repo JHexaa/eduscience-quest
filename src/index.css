@@ -415,19 +415,16 @@ table th {
   background-size: cover;
   background-repeat: no-repeat;
   height: 1080px;
-  margin-top: 0;
+  font-family: 'Poppins', sans-serif;
 }
 
 .volver-menu {
-  margin-top: 160px;
   margin-bottom: 100px;
   margin-left: 300px;
-
 }
 
 .volver-menu button {
   background-color: #232323;
-  font-family: 'Poppins', sans-serif;
   font-weight: 600;
   color: white;
   padding: 20px 20px 20px 20px;
@@ -435,6 +432,7 @@ table th {
   border-color: transparent;
   font-size: 20px;
   cursor: pointer;
+  margin-top: 100px;
 }
 
 .volver-menu button:hover {
@@ -450,11 +448,6 @@ table th {
   margin-right: 300px;
 }
 
-.opciones-menu-ecosistema a {
-  text-decoration: none;
-  color: white;
-}
-
 .E-1,
 .E-2,
 .E-3 {
@@ -466,6 +459,8 @@ table th {
   height: 400px;
   width: 300px;
   border-radius: 10px;
+  color: white;
+  cursor: pointer;
 }
 
 .E-1:hover,
@@ -513,11 +508,14 @@ table th {
 
 
 /* Pantalla de preguntas de Ecosistema */
+.pregunta-ecosistema{
+  padding-top: 95px;
+}
+
 .contenedor-preguntas {
   text-align: center;
   align-content: center;
   background-color: rgba(34, 48, 33, 0.658);
-  margin-top: 75px;
   margin-bottom: 75px;
   margin-left: 150px;
   margin-right: 150px;
@@ -540,6 +538,7 @@ table th {
 .contenedor-preguntas h1 {
   font-size: 40px;
   color: white;
+  font-weight: bold;
 }
 
 .respuestas {
