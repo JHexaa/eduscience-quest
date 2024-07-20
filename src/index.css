@@ -130,7 +130,7 @@ footer {
   background-color: rgba(34, 48, 33, 0.658);
   align-content: center;
   color: white;
-  height: 60%;
+  height: 80%;
 }
 
 .parrafo-menu {
@@ -147,38 +147,29 @@ footer {
 
 .parrafo-menu p {
   font-weight: bold;
-  font-size: 36px;
-  margin-bottom: 20px;
+  font-size: 32px;
 }
 
-.opciones-menu {
-  display: flex;
-  justify-content: center;
-  max-width: fit-content;
-  gap: 5%;
-}
 
 .ecosistema,
 .animales,
 .plantas,
 .agua {
-  color: black;
-  background-color: rgba(255, 255, 255, 0.6);
-  align-content: center;
-  text-align: center;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.4);
   display: flex;
+  align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 40px;
   border-radius: 25px;
-  max-width: fit-content;
+  height: 480px;
 }
 
 .ecosistema h2,
 .animales h2,
 .plantas h2,
 .agua h2 {
-  font-size: 30px;
+  font-size: 34px;
   font-weight: bold;
 }
 
@@ -186,25 +177,11 @@ footer {
 .animales img,
 .plantas img,
 .agua img {
-  height: 200px;
-  width: 200px;
+  margin: 10px;
+  height: 250px;
+  width: 250px;
 }
 
-.ecosistema a button,
-.animales a button,
-.plantas a button,
-.agua a button {
-  padding: 10px 80px;
-  margin-top: 25px;
-  background-color: rgba(34, 48, 33, 0.8);
-  border-color: transparent;
-  border-radius: 25px;
-  color: white;
-  font-weight: bold;
-  font-family: 'Poppins', sans-serif;
-  cursor: pointer;
-  font-size: 20px;
-}
 
 .ecosistema button:hover,
 .animales button:hover,

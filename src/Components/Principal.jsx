@@ -4,39 +4,45 @@ import logoEco from '../assets/images/logo-ecosistema.png'
 import logoAnim from '../assets/images/logo-animales.png'
 import logoPlan from '../assets/images/logo-plantas.png'
 import LogoAgua from '../assets/images/logo-cicloAgua.png'
-
+import { useNavigate } from 'react-router-dom';
 
 const Principal = () => {
+
+    const navigate = useNavigate();
+
+    const ecosistema = () => {
+        navigate('/login')
+    }
 
     return (
         <>
             <Navbar />
-            <div className="cuerpo h-screen flex justify-center items-center">
-                <div className="contenedor-menu mx-52 p-10">
+            <div className="cuerpo h-screen flex items-center justify-center align-center px-20 py-10">
+                <div className="contenedor-menu p-10">
                     <div className="parrafo-menu">
-                        <h1 className="">BIENVENIDO</h1>
-                        <p className="px-40">¡Descubre el mundo a través de la ciencia con EduScience Quest!</p>
+                        <h1 className="">BIENVENIDO, ${ }</h1>
+                        <p className="px-40 pb-10">¡Descubre el mundo a través de la ciencia con EduScience Quest!</p>
                     </div>
-                    <div className="opciones-menu ">
-                        <div class="ecosistema">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="ecosistema text-center">
                             <h2>Ecosistemas</h2>
                             <img src={logoEco} />
-                            <a href="menu-ecosistema.html"><button>Jugar</button></a>
+                            <button className="text-xl mt-6 px-20 rounded-xl py-2 bg-main text-white hover:bg-main-HOVER">Jugar</button>
                         </div>
-                        <div class="animales">
+                        <div class="animales text-center">
                             <h2>Animales</h2>
                             <img src={logoAnim} />
-                            <a href="menu-animales.html"><button>Jugar</button></a>
+                            <button className="text-xl mt-6 px-20 rounded-xl py-2 bg-main text-white hover:bg-main-HOVER">Jugar</button>
                         </div>
-                        <div class="plantas">
+                        <div class="plantas text-center">
                             <h2>Plantas</h2>
                             <img src={logoPlan} />
-                            <a href="menu-plantas.html"><button>Jugar</button></a>
+                            <button className="text-xl mt-6 px-20 rounded-xl py-2 bg-main text-white hover:bg-main-HOVER">Jugar</button>
                         </div>
-                        <div class="agua">
+                        <div class="agua text-center">
                             <h2>Ciclo del Agua</h2>
                             <img src={LogoAgua} />
-                            <a href="menu-ciclo-agua.html"><button>Jugar</button></a>
+                            <button className="text-xl mt-6 px-20 rounded-xl py-2 bg-main text-white hover:bg-main-HOVER">Jugar</button>
                         </div>
                     </div>
                 </div>
