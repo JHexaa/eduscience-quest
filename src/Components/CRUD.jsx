@@ -2,11 +2,14 @@ import React, { useEffect, useState } from 'react';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
 import apiService from '../apiService';
+import { useNavigate } from 'react-router-dom';
 
 const CRUD = () => {
     const [users, setUsers] = useState([]);
     const [editUser, setEditUser] = useState({ id: '', nombre: '', apellido: '', email: '' });
     const [responseMessage, setResponseMessage] = useState('');
+    const [user, setUser] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetchUsers();
@@ -74,14 +77,30 @@ const CRUD = () => {
         }));
     };
 
+    useEffect(() => {
+        const userID = sessionStorage.getItem('userID');
+        const userNombre = sessionStorage.getItem('userNombre');
+        const userApellido = sessionStorage.getItem('userApellido');
+        if (!userID) {
+            navigate('/login');
+        } else {
+            setUser({ nombre: userNombre, apellido: userApellido });
+        }
+    }, [navigate]);
+
+    if (!user) {
+        return null;
+    }
+
     return (
         <>
             <Navbar />
             <div className="cuerpo h-screen flex items-center justify-center align-center px-20 py-10">
                 <div className="container-users">
+                    <h1 className="text-4xl text-white ">BIENVENIDO, {user.nombre.toUpperCase()}</h1>
                     <div className="users-content">
                         <div className="container-container-user">
-                            <h2>Usuarios Registrados</h2>
+                            <h2 className="text-3xl">Usuarios Registrados</h2>
                             <table>
                                 <thead>
                                     <tr>
@@ -100,8 +119,10 @@ const CRUD = () => {
                                             <td>{user.Apellido}</td>
                                             <td>{user.Email}</td>
                                             <td>
-                                                <button className="edit" onClick={() => handleEditUser(user.Id)}>editar</button>
-                                                <button className="delete" onClick={() => handleDeleteUser(user.Id)}>borrar</button>
+                                                <div className="flex gap-4 justify-center align-center items-center">
+                                                    <button className="edit" onClick={() => handleEditUser(user.Id)}>editar</button>
+                                                    <button className="delete" onClick={() => handleDeleteUser(user.Id)}>borrar</button>
+                                                </div>
                                             </td>
                                         </tr>
                                     ))}
@@ -144,7 +165,7 @@ const CRUD = () => {
                     </div>
                 </div>
             </div>
-            <Footer/>
+            <Footer />
         </>
     );
 };

@@ -291,13 +291,13 @@ footer {
   display: flex;
   align-items: center;
   padding: 50px;
+}
+
+.container-users {
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
   height: 650px;
-}
-
-.container-users {
   padding: 50px;
 }
 
@@ -364,6 +364,7 @@ table th {
   padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
+  gap: 4px;
 }
 
 .edit {
