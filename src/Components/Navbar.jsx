@@ -9,8 +9,8 @@ import bibl from "../assets/svg/bibl.svg"
 const Navbar = () => {
   return (
     <>
-      <nav className=" bg-bgnav flex justify-between h-40 p-4">
-        <img className="w-60 " src={logo} alt="EduScience Quest" />
+      <nav className=" bg-bgnav flex justify-between align-center items-center h-40 py-8 mx-52">
+        <img className="w-80 " src={logo} alt="EduScience Quest" />
         <ul className="flex space-x-4">
           <NavItem to="/login" icon={user} />
           <NavItem to="/users" icon={faq} />
