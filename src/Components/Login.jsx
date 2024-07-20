@@ -54,7 +54,7 @@ const Login = () => {
               <input type="password" className="shadow appearance-none border rounded" placeholder="Password" required value={password} onChange={(e) => setPassword(e.target.value)} />
               <button type="submit" className='text-bg'  >Iniciar Sesion</button>
             </form>
-            {message && <p className={`mt-5 mx-10 w-72 ${messageColor}`}>{message}</p>}
+            {message && <p className={`text-xl mt-5 mx-10 w-72 ${messageColor}`}>{message}</p>}
             <p class="login-response" id="response"></p>
             <a href="registro.html" className="my-5 mx-10">No tienes una cuenta? Haz click Aqui!</a>
           </div>
