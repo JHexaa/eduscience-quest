@@ -77,7 +77,7 @@ const CRUD = () => {
     return (
         <>
             <Navbar />
-            <div className="cuerpo h-screen">
+            <div className="cuerpo h-screen flex items-center justify-center align-center px-20 py-10">
                 <div className="container-users">
                     <div className="users-content">
                         <div className="container-container-user">
