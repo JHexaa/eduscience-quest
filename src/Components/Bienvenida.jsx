@@ -1,8 +1,10 @@
-import React from 'react'
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import Logo from '../assets/images/Logo-bienvenido.png'
+import Logo from '../assets/images/Logo-bienvenido.png';
+
 
 const Bienvenida = () => {
+
   const navigate = useNavigate();
 
   const beginGame = () => {
