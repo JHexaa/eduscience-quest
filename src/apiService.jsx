@@ -30,8 +30,8 @@ const apiService = {
   getGame: (id) => {
     return axiosInstance.get(`/games/${id}`);
   },
-  updateGame: (usuarioId, temaId, preguntaId) => {
-    return axiosInstance.put(`/games/${usuarioId}`, { tema_id: temaId, pregunta_id: preguntaId });
+  updateGame: (usuarioId, temaId, preguntaId, categoriaId) => {
+    return axiosInstance.put(`/games/${usuarioId}`, { tema_id: temaId, pregunta_id: preguntaId, categoria_id: categoriaId });
   },
   fetchPreguntas: () => {
     return axiosInstance.get('/preguntas');
