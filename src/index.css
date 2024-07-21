@@ -505,10 +505,12 @@ table th {
 
 .titulo,
 .contador,
-.concepto {
+.concepto,
+.pregunta {
   font-size: 20px;
   color: white;
   font-weight: bold;
+  padding: 20px;
 }
 
 .concepto {
@@ -525,31 +527,37 @@ table th {
 .respuestas {
   margin-left: 200px;
   margin-right: 200px;
-}
-
-.grupo-1,
-.grupo-2 {
   display: flex;
-  gap: 40px;
-  margin: 25px;
-
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px; /* Add spacing between the answers */
 }
 
-.respuesta-1,
-.respuesta-2,
-.respuesta-3,
-.respuesta-4 {
-  font-size: 20px;
+.respuesta {
+  flex: 1 1 calc(50% - 20px);
+  background: rgba(0, 0, 0, 0.5); 
   color: white;
+  padding: 20px; 
+  border-radius: 10px; 
+  text-align: center; 
+  cursor: pointer; 
+  transition: background 0.3s ease;
   font-weight: bold;
-  background-color: rgba(43, 51, 43, 0.8);
-  margin: 25px;
-  text-align: center;
-  border-radius: 25px;
-  width: 500px;
-  padding: 10px;
-  align-content: center;
 }
+
+.respuesta:hover {
+  background: rgba(0, 0, 0, 0.7); 
+}
+
+.respuesta.seleccionada {
+  background: grey;
+}
+
+.respuesta p {
+  margin: 0;
+  font-size: 20px;
+}
+
 
 .contenedor-preguntas button {
   font-size: 20px;

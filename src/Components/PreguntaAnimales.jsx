@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 import { useNavigate } from 'react-router-dom';
 import apiService from '../apiService';
 
-const PreguntaEcosistema = () => {
+const PreguntaAnimales = () => {
     const [game, setGame] = useState(null);
     const [pregunta, setPregunta] = useState(null);
     const [respuestas, setRespuestas] = useState([]);
@@ -26,19 +26,19 @@ const PreguntaEcosistema = () => {
         let nextTemaId = game.tema_id;
         let nextCategoriaId = game.categoria_id;
 
-        if (nextPreguntaId === 5) {
+        if (nextPreguntaId === 17) {
             nextTemaId++;
-        } else if (nextPreguntaId === 9) {
+        } else if (nextPreguntaId === 21) {
             nextTemaId++;
-        } else if (nextPreguntaId === 13) {
+        } else if (nextPreguntaId === 25) {
             nextTemaId++;
             nextCategoriaId++;
         }
 
-        if (nextPreguntaId === 5 || nextPreguntaId === 9 || nextPreguntaId === 13) {
-            navigate('/felicitacion-ecosistema');
+        if (nextPreguntaId === 17 || nextPreguntaId === 21 || nextPreguntaId === 25) {
+            navigate('/felicitacion-animales');
         }
-
+        
         try {
             await apiService.updateGame(game.usuario_id, nextTemaId, nextPreguntaId, nextCategoriaId);
 
@@ -92,7 +92,7 @@ const PreguntaEcosistema = () => {
     return (
         <>
             <Navbar />
-            <div className="cuerpo-ecosistema">
+            <div className="cuerpo-animales">
                 <div className="pregunta-ecosistema">
                     <div className="contenedor-preguntas">
                         <p className="titulo">Pregunta</p>
@@ -125,5 +125,5 @@ const PreguntaEcosistema = () => {
     );
 };
 
-export default PreguntaEcosistema;
+export default PreguntaAnimales;
 
