@@ -38,6 +38,9 @@ const apiService = {
   },
   getPregunta: (id) => {
     return axiosInstance.get(`/preguntas/${id}`);
+  },
+  getRespuestas: (preguntaId) => {
+    return axiosInstance.get(`/respuestas/${preguntaId}`);
   }
 };
 

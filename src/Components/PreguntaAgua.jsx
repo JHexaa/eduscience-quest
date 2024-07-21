@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 import { useNavigate } from 'react-router-dom';
 import apiService from '../apiService';
 
-const PreguntaEcosistema = () => {
+const PreguntaAgua = () => {
     const [game, setGame] = useState(null);
     const [pregunta, setPregunta] = useState(null);
     const [respuestas, setRespuestas] = useState([]);
@@ -26,17 +26,19 @@ const PreguntaEcosistema = () => {
         let nextTemaId = game.tema_id;
         let nextCategoriaId = game.categoria_id;
 
-        if (nextPreguntaId === 5) {
+        if (nextPreguntaId === 41) {
             nextTemaId++;
-        } else if (nextPreguntaId === 9) {
+        } else if (nextPreguntaId === 45) {
             nextTemaId++;
-        } else if (nextPreguntaId === 13) {
+        } else if (nextPreguntaId === 49) {
             nextTemaId++;
             nextCategoriaId++;
         }
-
-        if (nextPreguntaId === 5 || nextPreguntaId === 9 || nextPreguntaId === 13) {
-            navigate('/felicitacion-ecosistema');
+        
+        if (nextPreguntaId === 41 || nextPreguntaId === 45) {
+            navigate('/felicitacion-agua');
+        }else if (nextPreguntaId === 49){
+            navigate('/felicitacion');
         }
 
         try {
@@ -55,7 +57,7 @@ const PreguntaEcosistema = () => {
                 tema_id: nextTemaId,
                 pregunta_id: nextPreguntaId,
                 categoria_id: nextCategoriaId
-            }));
+            }));  
         } catch (error) {
             console.error('Error updating game data:', error);
         }
@@ -92,7 +94,7 @@ const PreguntaEcosistema = () => {
     return (
         <>
             <Navbar />
-            <div className="cuerpo-ecosistema">
+            <div className="cuerpo-ciclo-agua">
                 <div className="pregunta-ecosistema">
                     <div className="contenedor-preguntas">
                         <p className="titulo">Pregunta</p>
@@ -125,5 +127,5 @@ const PreguntaEcosistema = () => {
     );
 };
 
-export default PreguntaEcosistema;
+export default PreguntaAgua;
 
