@@ -472,12 +472,35 @@ table th {
   border-radius: 10px;
   color: white;
   cursor: pointer;
+  font-weight: bold;
 }
 
 .E-1:hover,
 .E-2:hover,
 .E-3:hover {
   background-color: rgba(0, 0, 0, 0.8);
+}
+
+.progress-container {
+  width: 80%;
+  background-color: #f3f3f3;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 10px;
+  position: relative;
+}
+
+.progress-bar {
+  height: 20px;
+  background-color: #4caf50;
+  width: 0;
+  transition: width 0.3s ease;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-weight: bold;
 }
 
 /*Termina pantalla de menu-Ecosistema*/

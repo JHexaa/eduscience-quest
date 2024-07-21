@@ -27,6 +27,18 @@ const apiService = {
   deleteUser: (id) => {
     return axiosInstance.delete(`/usuarios/${id}`);
   },
+  getGame: (id) => {
+    return axiosInstance.get(`/games/${id}`);
+  },
+  updateGame: (usuarioId, temaId, preguntaId) => {
+    return axiosInstance.put(`/games/${usuarioId}`, { tema_id: temaId, pregunta_id: preguntaId });
+  },
+  fetchPreguntas: () => {
+    return axiosInstance.get('/preguntas');
+  },
+  getPregunta: (id) => {
+    return axiosInstance.get(`/preguntas/${id}`);
+  }
 };
 
 export default apiService;

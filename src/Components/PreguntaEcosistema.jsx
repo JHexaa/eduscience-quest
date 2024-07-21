@@ -1,13 +1,62 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from './Navbar';
 import { useNavigate } from 'react-router-dom';
+import apiService from '../apiService';
 
 const PreguntaEcosistema = () => {
+    const [game, setGame] = useState('');
+    const [pregunta, setPregunta] = useState(null);
     const navigate = useNavigate();
 
-    const handleNext = () => {
-        
+    const handleNext = async () => {
+        let nextPreguntaId = game.pregunta_id + 1;
+        let nextTemaId = game.tema_id;
+
+        if (nextPreguntaId === 5) {
+            nextTemaId = 2;
+        } else if (nextPreguntaId === 9) {
+            nextTemaId = 3;
+        }
+
+        try {
+            await apiService.updateGame(game.usuario_id, nextTemaId, nextPreguntaId);
+
+            const response = await apiService.getPregunta(nextPreguntaId);
+            setPregunta(response.data);
+
+            setGame(prevGame => ({
+                ...prevGame,
+                tema_id: nextTemaId,
+                pregunta_id: nextPreguntaId
+            }));
+        } catch (error) {
+            console.error('Error updating game data:', error);
+        }
     };
+
+    const getGame = async (id) => {
+        try {
+            const response = await apiService.getGame(id);
+            setGame(response.data);
+            const preguntaResponse = await apiService.getPregunta(response.data.pregunta_id);
+            setPregunta(preguntaResponse.data);
+        } catch (error) {
+            console.error('Error fetching game data:', error);
+        }
+    };
+
+    useEffect(() => {
+        const userID = sessionStorage.getItem('userID');
+        if (!userID) {
+            navigate('/login');
+        } else {
+            getGame(userID);
+        }
+    }, [navigate]);
+
+    if (!game || !pregunta) {
+        return null;
+    }
 
     return (
         <>
@@ -16,13 +65,12 @@ const PreguntaEcosistema = () => {
                 <div className="pregunta-ecosistema">
                     <div className="contenedor-preguntas">
                         <p className="titulo">Pregunta</p>
-                        <span className="contador">1</span><span className="contador">/4</span>
+                        <span className="contador">{pregunta.numero}/4</span>
                         <p className="concepto">
-                            Un ecosistema incluye tanto a los seres vivos (plantas, animales, microorganismos) como a los elementos no vivos (agua, aire, suelo) 
-                            que interactúan en un entorno específico. Estos componentes trabajan juntos para formar un sistema equilibrado donde cada elemento tiene un rol esencial.
+                            {pregunta.contexto}
                         </p>
 
-                        <h1>¿Qué es un ecosistema?</h1>
+                        <h1>{pregunta.pregunta}</h1>
                         <div className="respuestas">
                             <div className="grupo-1">
                                 <div className="respuesta-1">
