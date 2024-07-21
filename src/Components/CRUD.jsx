@@ -84,7 +84,7 @@ const CRUD = () => {
         const userTipo = sessionStorage.getItem('userTipo');
         if (!userID) {
             navigate('/login');
-        }else if (userTipo!='Admin'){
+        }else if (userTipo!=='Admin'){
             navigate('/principal')
         }else {
             setUser({ nombre: userNombre, apellido: userApellido });

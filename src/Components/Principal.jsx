@@ -42,22 +42,22 @@ const Principal = () => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                         <div class="ecosistema text-center">
                             <h2>Ecosistemas</h2>
-                            <img src={logoEco} />
+                            <img src={logoEco} alt=""/>
                             <button onClick={() => handleNavigation('/ecosistema')} className="text-xl mt-6 px-20 rounded-xl py-3 bg-main text-white hover:bg-main-HOVER">Jugar</button>
                         </div>
                         <div class="animales text-center">
                             <h2>Animales</h2>
-                            <img src={logoAnim} />
+                            <img src={logoAnim} alt=""/>
                             <button className="text-xl mt-6 px-20 rounded-xl py-3 bg-main text-white hover:bg-main-HOVER">Jugar</button>
                         </div>
                         <div class="plantas text-center">
                             <h2>Plantas</h2>
-                            <img src={logoPlan} />
+                            <img src={logoPlan} alt=""/>
                             <button className="text-xl mt-6 px-20 rounded-xl py-3 bg-main text-white hover:bg-main-HOVER">Jugar</button>
                         </div>
                         <div class="agua text-center">
                             <h2>Ciclo del Agua</h2>
-                            <img src={LogoAgua} />
+                            <img src={LogoAgua} alt=""/>
                             <button className="text-xl mt-6 px-20 rounded-xl py-3 bg-main text-white hover:bg-main-HOVER">Jugar</button>
                         </div>
                     </div>

@@ -28,15 +28,15 @@ const Bibliografia = () => {
                         <h1>BIBLIOGRAFIA</h1>
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                         <div class="libros">
-                            <img src={libro4} onClick={() => handleNavigation('/ecosistema')}/>
+                            <img src={libro4} onClick={() => handleNavigation('/ecosistema')} alt=""/>
                             <h2>Ciencias Naturales 4</h2>
                         </div>
-                        <div class="libros text-center">
-                            <img src={libro5} />
+                        <div class="libros text-center" >
+                            <img src={libro5} alt=""/>
                             <h2>Ciencias Naturales 5</h2>
                         </div>
                         <div class="libros text-center">
-                            <img src={libro6} />
+                            <img src={libro6} alt=""/>
                             <h2>Ciencias Naturales 4</h2>
                         </div>
                     </div>
