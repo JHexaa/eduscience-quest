@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect} from 'react'
 import Navbar from '../Components/Navbar'
 import libro4 from '../assets/images/libro4.jpg'
 import libro5 from '../assets/images/libro5.jpg'

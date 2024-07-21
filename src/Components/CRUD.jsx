@@ -28,7 +28,6 @@ const CRUD = () => {
     const handleEditUser = async (id) => {
         try {
             const response = await apiService.getUser(id);
-            console.log('Fetched user data:', response.data); // Debugging line
             setEditUser({
                 id: response.data.Id,
                 nombre: response.data.Nombre,
