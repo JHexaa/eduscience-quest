@@ -239,59 +239,6 @@ footer {
 /*Termina pantalla de Bienvenida*/
 
 
-
-
-/*Pantalla Felicitaciones-ciclo-del-agua*/
-.cuerpo-agua-felicitacion {
-  background-image: url(assets/images/fondo-ciclo-del-agua.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 1080px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.contenedor-felicitaciones {
-  padding: 10px;
-  background-color: rgba(0, 0, 0, 0.8);
-  border-radius: 10px;
-  text-align: center;
-  padding: 150px 400px 150px 400px;
-}
-
-.parrafo-felicitacion {
-  color: #00C203;
-  margin-bottom: 60px;
-}
-
-.botones-felicitacion {
-  display: flex;
-  justify-content: center;
-  gap: 140px;
-}
-
-.botones-felicitacion button {
-  background-color: #00C203;
-  border-color: transparent;
-  border-radius: 10px;
-  padding: 10px 30px 10px 30px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-.botones-felicitacion button:hover {
-  background-color: #3e833f;
-}
-
-/*Termina Pantalla felicitaciones*/
-
-
-
-
-
 /*Pantalla de Admin*/
 .admin-body {
   background-color: #232323
@@ -798,7 +745,6 @@ TERMINA REGISTRO */
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
 .cuerpo-animales-felicitacion {
@@ -810,6 +756,54 @@ TERMINA REGISTRO */
   align-items: center;
   justify-content: center;
 }
+
+.cuerpo-agua-felicitacion {
+  background-image: url(assets/images/fondo-ciclo-del-agua.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 1080px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contenedor-felicitaciones {
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  text-align: center;
+  padding: 150px 400px 150px 400px;
+}
+
+.contenedor-felicitaciones img{
+  margin-bottom: 100px;
+  margin-left: 50px;
+}
+
+.parrafo-felicitacion {
+  color: #00C203;
+  margin-bottom: 60px;
+}
+
+.botones-felicitacion button {
+  background-color: #00C203;
+  border-color: transparent;
+  border-radius: 10px;
+  padding: 10px 30px 10px 30px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.botones-felicitacion button:hover {
+  background-color: #3e833f;
+}
+
+.parrafo-felicitacion h1{
+  font-size: 2em;
+  font-weight: bold;
+}
+/*Termina Pantalla felicitaciones*/
 
 /*Bibliografia*/
 

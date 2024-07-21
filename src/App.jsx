@@ -11,6 +11,7 @@ import Ayuda from './Components/Ayuda';
 import Bibliografia from './Components/Bibliografia';
 import Ecosistema from './Components/Ecosistema';
 import PreguntaEcosistema from './Components/PreguntaEcosistema';
+import FelicitacionEcosistema from './Components/FelicitacionEcosistema';
 
 
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
         <Route path="/bibliografia" element={<Bibliografia />} />
         <Route path="/ecosistema" element={<Ecosistema />} />
         <Route path="/pregunta-ecosistema" element={<PreguntaEcosistema />} />
+        <Route path="/felicitacion-ecosistema" element={<FelicitacionEcosistema />} />
       </Routes>
     </Router>
   );

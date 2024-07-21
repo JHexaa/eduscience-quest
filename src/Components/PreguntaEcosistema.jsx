@@ -11,15 +11,19 @@ const PreguntaEcosistema = () => {
     const handleNext = async () => {
         let nextPreguntaId = game.pregunta_id + 1;
         let nextTemaId = game.tema_id;
+        let nextCategoriaId = game.categoria_id;
 
         if (nextPreguntaId === 5) {
             nextTemaId = 2;
         } else if (nextPreguntaId === 9) {
             nextTemaId = 3;
+        } else if (nextPreguntaId === 13){
+            nextTemaId = 4;
+            nextCategoriaId = 2
         }
 
         try {
-            await apiService.updateGame(game.usuario_id, nextTemaId, nextPreguntaId);
+            await apiService.updateGame(game.usuario_id, nextTemaId, nextPreguntaId, nextCategoriaId);
 
             const response = await apiService.getPregunta(nextPreguntaId);
             setPregunta(response.data);
@@ -27,8 +31,17 @@ const PreguntaEcosistema = () => {
             setGame(prevGame => ({
                 ...prevGame,
                 tema_id: nextTemaId,
-                pregunta_id: nextPreguntaId
+                pregunta_id: nextPreguntaId,
+                categoria_id: nextCategoriaId
             }));
+
+            if (nextPreguntaId===5){
+                navigate('/felicitacion-ecosistema')
+            }else if (nextPreguntaId === 9) {
+                navigate('/felicitacion-ecosistema')
+            } else if (nextPreguntaId === 13){
+                navigate('/felicitacion-ecosistema')
+            }
         } catch (error) {
             console.error('Error updating game data:', error);
         }
