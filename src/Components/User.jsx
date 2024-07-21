@@ -15,7 +15,7 @@ const Users = () => {
     const userTipo = sessionStorage.getItem('userTipo');
     if (!userID) {
       navigate('/login');
-    }else if (userTipo=='Admin'){
+    }else if (userTipo==='Admin'){
       navigate('/crud')
     }else {
       setUser({ nombre: userNombre, apellido: userApellido, email: userEmail });
