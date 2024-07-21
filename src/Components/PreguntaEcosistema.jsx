@@ -34,6 +34,14 @@ const PreguntaEcosistema = () => {
                 pregunta_id: nextPreguntaId,
                 categoria_id: nextCategoriaId
             }));
+
+            if (nextPreguntaId===5){
+                navigate('/felicitacion-ecosistema')
+            }else if (nextPreguntaId === 9) {
+                navigate('/felicitacion-ecosistema')
+            } else if (nextPreguntaId === 13){
+                navigate('/felicitacion-ecosistema')
+            }
         } catch (error) {
             console.error('Error updating game data:', error);
         }
