@@ -16,7 +16,7 @@ const Principal = () => {
     if (game.categoria_id >= categoriaIdRequired) {
       navigate(path);
     } else {
-      alert('No puedes acceder a esta categoría aún.');
+      alert('No puedes acceder a este tema aún.\nCompleta los temas anteriores para desbloquear.');
     }
   };
 

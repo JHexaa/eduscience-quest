@@ -28,7 +28,7 @@ const Agua = () => {
         } else if (game.tema_id >= temaIdRequired) {
             navigate(path);
         } else {
-            alert('No puedes acceder a este tema aún.');
+            alert('No puedes acceder a este tema aún.\nCompleta los niveles anteriores para desbloquear.');
         }
     };
 
