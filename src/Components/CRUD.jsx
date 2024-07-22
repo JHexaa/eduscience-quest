@@ -83,9 +83,9 @@ const CRUD = () => {
         const userTipo = sessionStorage.getItem('userTipo');
         if (!userID) {
             navigate('/login');
-        }else if (userTipo!=='Admin'){
+        } else if (userTipo !== 'Admin') {
             navigate('/principal')
-        }else {
+        } else {
             setUser({ nombre: userNombre, apellido: userApellido });
         }
     }, [navigate]);
@@ -94,12 +94,21 @@ const CRUD = () => {
         return null;
     }
 
+    const cerrarSesion = () => {
+        sessionStorage.removeItem('userID');
+        navigate('/login');
+    }
+
     return (
         <>
             <Navbar />
             <div className="cuerpo h-screen flex items-center justify-center align-center px-20 py-10">
                 <div className="container-users">
                     <h1 className="text-4xl text-white ">BIENVENIDO, {user.nombre.toUpperCase()}</h1>
+                    <button
+                        onClick={() => cerrarSesion()}
+                        className="absolute text-l top-56 right-44 px-8 rounded-xl py-4 bg-red-600 text-white hover:bg-red-900"
+                    > CERRAR SESION </button>
                     <div className="users-content">
                         <div className="container-container-user">
                             <h2 className="text-3xl">Usuarios Registrados</h2>

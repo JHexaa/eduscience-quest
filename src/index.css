@@ -111,7 +111,15 @@ footer {
 
 /*Termina pantalla de bienvenida*/
 
-
+/*PANTALLA USUARIO*/
+.usuario-info {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(34, 48, 33, 0.658);
+  color: white;
+  width: 84%;
+  height: 80%;
+}
 
 
 
@@ -218,7 +226,7 @@ footer {
   height: 80%;
 }
 
-.parrafo-ayuda{
+.parrafo-ayuda {
   display: flex;
   text-align: center;
   align-items: center;
@@ -230,7 +238,7 @@ footer {
   font-weight: bolder;
 }
 
-.parrafo-ayuda h2{
+.parrafo-ayuda h2 {
   font-size: 55px;
   font-weight: bold;
 }
@@ -489,7 +497,7 @@ table th {
 
 
 /* Pantalla de preguntas de Ecosistema */
-.pregunta-ecosistema{
+.pregunta-ecosistema {
   padding-top: 95px;
 }
 
@@ -530,23 +538,24 @@ table th {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 20px; /* Add spacing between the answers */
+  gap: 20px;
+  /* Add spacing between the answers */
 }
 
 .respuesta {
   flex: 1 1 calc(50% - 20px);
-  background: rgba(0, 0, 0, 0.5); 
+  background: rgba(0, 0, 0, 0.5);
   color: white;
-  padding: 20px; 
-  border-radius: 10px; 
-  text-align: center; 
-  cursor: pointer; 
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
   transition: background 0.3s ease;
   font-weight: bold;
 }
 
 .respuesta:hover {
-  background: rgba(0, 0, 0, 0.7); 
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .respuesta.seleccionada {
@@ -782,7 +791,7 @@ TERMINA REGISTRO */
   padding: 150px 400px 150px 400px;
 }
 
-.contenedor-felicitaciones img{
+.contenedor-felicitaciones img {
   margin-bottom: 100px;
   margin-left: 50px;
 }
@@ -807,10 +816,11 @@ TERMINA REGISTRO */
   background-color: #3e833f;
 }
 
-.parrafo-felicitacion h1{
+.parrafo-felicitacion h1 {
   font-size: 2em;
   font-weight: bold;
 }
+
 /*Termina Pantalla felicitaciones*/
 
 /*Bibliografia*/
