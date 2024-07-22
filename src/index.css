@@ -128,7 +128,7 @@ footer {
 }
 
 .usuario-container{
-  background-color: grey;
+  background-color: rgb(128, 128, 128,0.9);
   border-radius: 10%;
   padding-bottom: 20px;
   padding-left: 20px;
@@ -270,28 +270,28 @@ footer {
   flex: 1;
   display: flex;
   align-items: center;
-  padding: 50px;
+  padding-top: 50px;
 }
 
 .container-users {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(34, 48, 33, 0.658);
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-  height: 650px;
+  height: 80%;
+  width: 88%;
   padding: 50px;
 }
 
 .container-container-user {
   display: flex;
   flex-direction: column;
-  align-items: center;
   background-color: rgba(43, 51, 43, 0.8);
   border-radius: 10px;
   overflow-x: auto;
   max-height: 465px;
-  width: 1200px;
+  width: 70%;
   color: white;
-  padding: 50px
+  padding: 25px
 }
 
 .edit-response {
@@ -301,13 +301,17 @@ footer {
 .container-container-edit {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding-left: 50px;
-  padding-right: 50px;
-  margin-left: 100px;
+  text-align: center;
+  margin-left: 20px;
+  padding: 25px;
   border-radius: 10px;
   background-color: rgba(43, 51, 43, 0.8);
   color: white;
+  width: 300px;
+}
+
+.container-container-edit p{
+  text-align: left;
 }
 
 .users-content h2 {
@@ -644,6 +648,8 @@ table th {
   margin-top: 40px;
   border-radius: 10px;
   padding-left: 10px;
+  width: 80%;
+
 }
 
 .login-response {
@@ -734,6 +740,7 @@ table th {
   margin-top: 20px;
   border-radius: 10px;
   padding-left: 10px;
+  width: 80%;
 }
 
 .register-1 button {

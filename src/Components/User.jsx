@@ -40,9 +40,9 @@ const Users = () => {
               <img src={fotoPerfil} alt="monkey-animated" className="w-6/12" />
             </div>
             <div className="justify-center mx flex flex-col gap-4 mt-10">
-              <p className="text-2xl"><strong>NOMBRE:</strong> {user.nombre.toUpperCase()}</p>
-              <p className="text-2xl"><strong>APELLIDO:</strong> {user.apellido.toUpperCase()}</p>
-              <p className="text-2xl"><strong>CORREO:</strong> {user.email.toUpperCase()}</p>
+              <p className="text-xl"><strong>NOMBRE:</strong> {user.nombre.toUpperCase()}</p>
+              <p className="text-xl"><strong>APELLIDO:</strong> {user.apellido.toUpperCase()}</p>
+              <p className="text-xl"><strong>CORREO:</strong> {user.email.toUpperCase()}</p>
             </div>
           </div>
         </div>
