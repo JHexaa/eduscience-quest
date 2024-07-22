@@ -24,9 +24,9 @@ const Principal = () => {
     try {
       const response = await apiService.getGame(id);
       setGame(response.data);
-      sessionStorage.setItem('categoria_id',response.data.categoria_id);
-      sessionStorage.setItem('tema_id',response.data.tema_id);
-      sessionStorage.setItem('pregunta_id',response.data.pregunta_id);
+      sessionStorage.setItem('categoria_id', response.data.categoria_id);
+      sessionStorage.setItem('tema_id', response.data.tema_id);
+      sessionStorage.setItem('pregunta_id', response.data.pregunta_id);
     } catch (error) {
       console.error('Error fetching game data:', error);
     }
@@ -48,10 +48,19 @@ const Principal = () => {
     return null;
   }
 
+  const cerrarSesion = () => {
+    sessionStorage.removeItem('userID');
+    navigate('/login');
+  }
+
   return (
     <>
       <Navbar />
       <div className="cuerpo h-screen flex items-center justify-center align-center px-20 py-10">
+        <button
+          onClick={() => cerrarSesion()}
+          className="absolute text-l top-56 right-44 px-8 rounded-xl py-4 bg-red-600 text-white hover:bg-red-900"
+        > CERRAR SESION </button>
         <div className="contenedor-menu p-10">
           <div className="parrafo-menu">
             <h1>BIENVENIDO, {user.nombre.toUpperCase()}</h1>
@@ -100,6 +109,7 @@ const Principal = () => {
             </div>
           </div>
         </div>
+
       </div>
     </>
   );
