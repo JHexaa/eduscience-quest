@@ -62,7 +62,7 @@ const PreguntaEcosistema = () => {
         } catch (error) {
             console.error('Error updating game data:', error);
         }
-    };6
+    };
 
     const getGame = async (id) => {
         try {
