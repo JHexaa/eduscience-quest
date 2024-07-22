@@ -24,15 +24,15 @@ const Bibliografia = () => {
                         <h1>BIBLIOGRAFIA</h1>
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                             <div class="libros">
-                                <img src={libro4} onClick={() => window.location.href = "https://santillana.com.pa/ciencias-naturales-4/"} alt="" />
+                                <img src={libro4} onClick={() => window.open("https://santillana.com.pa/ciencias-naturales-4/", "_blank")} alt=""/>
                                 <h2>Ciencias Naturales 4</h2>
                             </div>
                             <div class="libros text-center" >
-                                <img src={libro5} onClick={() => window.location.href = "https://santillana.com.pa/ciencias-naturales-5/"} alt="" />
+                                <img src={libro5} onClick={() => window.open("https://santillana.com.pa/ciencias-naturales-5/", "_blank")} alt=""/>
                                 <h2>Ciencias Naturales 5</h2>
                             </div>
                             <div class="libros text-center">
-                                <img src={libro6} onClick={() => window.location.href = "https://santillana.com.pa/ciencias-naturales-6/"} alt="" />
+                                <img src={libro6} onClick={() => window.open("https://santillana.com.pa/ciencias-naturales-6/", "_blank")} alt=""/>
                                 <h2>Ciencias Naturales 6</h2>
                             </div>
                         </div>
