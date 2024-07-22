@@ -69,7 +69,7 @@ const Agua = () => {
                     <button onClick={() => navigate('/principal')}>Volver a Menu Principal</button>
                 </div>
                 <div className="flex justify-center text-white text-5xl font-bold mb-20">
-                    <h1 className="px-8 bg-[#223021a8]">AGUA</h1>
+                    <h1 className="px-8 bg-[#223021a8]">CICLO DEL AGUA</h1>
                 </div>
                 <div className="opciones-menu-ecosistema">
                     <div className="E-1 px-10 gap-4" onClick={() => handleNavigation('/pregunta-agua', 10, progressE1, 37)}>
