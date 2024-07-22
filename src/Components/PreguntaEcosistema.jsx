@@ -96,6 +96,9 @@ const PreguntaEcosistema = () => {
         <>
             <Navbar />
             <div className="cuerpo-ecosistema">
+                <div className="volver-menu-tema mx-40">
+                    <button onClick={() => navigate('/ecosistema')}>Volver a Menu </button>
+                </div>
                 <div className="pregunta-ecosistema">
                     <div className="contenedor-preguntas">
                         <p className="titulo">Pregunta</p>

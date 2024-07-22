@@ -96,7 +96,11 @@ const PreguntaAnimales = () => {
         <>
             <Navbar />
             <div className="cuerpo-animales">
+                <div className="volver-menu-tema mx-40">
+                    <button onClick={() => navigate('/animales')}>Volver a Menu </button>
+                </div>
                 <div className="pregunta-ecosistema">
+                    
                     <div className="contenedor-preguntas">
                         <p className="titulo">Pregunta</p>
                         <span className="contador">{pregunta.numero}/4</span>

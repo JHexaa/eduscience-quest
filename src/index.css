@@ -487,6 +487,22 @@ table th {
   margin-top: 0;
 }
 
+.volver-menu-tema button {
+  background-color: #232323;
+  font-weight: 600;
+  color: white;
+  padding: 20px 20px 20px 20px;
+  border-radius: 10px;
+  border-color: transparent;
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: 100px;
+}
+
+.volver-menu-tema button:hover {
+  background-color: #797878;
+}
+
 /*Termina pantalla menu-animales*/
 
 /*Pantalla menu-plantas*/
