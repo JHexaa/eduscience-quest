@@ -15,10 +15,6 @@ const Bibliografia = () => {
         }
     }, [navigate]);
 
-    const handleNavigation = (path) => {
-        navigate(path);
-    };
-
     return (
         <>
             <Navbar />
