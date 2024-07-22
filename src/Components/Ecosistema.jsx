@@ -24,7 +24,7 @@ const Ecosistema = () => {
             const userChoice = window.confirm('Ya has completado este tema al 100%. ¿Quieres volver a jugar este tema?, perderás tu progreso');
             if (userChoice) {
                 resetGame(temaIdRequired, preguntaId);
-            } 
+            }
         } else if (game.tema_id >= temaIdRequired) {
             navigate(path);
         } else {
@@ -36,7 +36,7 @@ const Ecosistema = () => {
         const userID = sessionStorage.getItem('userID');
         try {
             await apiService.updateGame(userID, tema_id, pregunta_id, 1);
-            setGame({ ...game, tema_id: tema_id, pregunta_id: pregunta_id});
+            setGame({ ...game, tema_id: tema_id, pregunta_id: pregunta_id });
             navigate('/pregunta-ecosistema')
         } catch (error) {
             console.error('Error resetting game data:', error);
@@ -68,9 +68,12 @@ const Ecosistema = () => {
                 <div className="volver-menu">
                     <button onClick={() => navigate('/principal')}>Volver a Menu Principal</button>
                 </div>
+                <div className="flex justify-center text-white text-5xl font-bold mb-20">
+                    <h1 className="px-8 bg-[#223021a8]">ECOSISTEMA</h1>
+                </div>
                 <div className="opciones-menu-ecosistema">
-                    <div className="E-1" onClick={() => handleNavigation('/pregunta-ecosistema', 1, progressE1, 1)}>
-                        <h3>Que es el Ecosistema</h3>
+                    <div className="E-1 px-10" onClick={() => handleNavigation('/pregunta-ecosistema', 1, progressE1, 1)}>
+                        <h3 className="text-2xl">Que es el Ecosistema</h3>
                         <img src={logoE1} alt="Logo E1" />
                         <div className="progress-container">
                             <div className="progress-bar" style={{ width: `${progressE1}%` }}>
@@ -78,8 +81,8 @@ const Ecosistema = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="E-2" onClick={() => handleNavigation('/pregunta-ecosistema', 2, progressE2, 5)}>
-                        <h3>Estructura del Ecosistema</h3>
+                    <div className="E-2 px-10 gap-4" onClick={() => handleNavigation('/pregunta-ecosistema', 2, progressE2, 5)}>
+                        <h3 className="text-2xl">Estructura del Ecosistema</h3>
                         <img src={logoE2} alt="Logo E2" />
                         <div className="progress-container">
                             <div className="progress-bar" style={{ width: `${progressE2}%` }}>
@@ -87,11 +90,11 @@ const Ecosistema = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="E-3" onClick={() => handleNavigation('/pregunta-ecosistema', 3, progressE3, 9)}>
-                        <h3>Protección y <br />conservación</h3>
+                    <div className="E-3 px-10 gap-4" onClick={() => handleNavigation('/pregunta-ecosistema', 3, progressE3, 9)}>
+                        <h3 className="text-2xl">Protección y <br />conservación</h3>
                         <img src={logoE3} alt="Logo E3" />
                         <div className="progress-container">
-                            <div className="progress-bar" style={{ width: `${progressE3}%` }}>
+                            <div className="progress-bar font-bold" style={{ width: `${progressE3}%` }}>
                                 {progressE3}%
                             </div>
                         </div>

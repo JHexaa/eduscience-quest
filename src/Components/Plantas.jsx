@@ -24,7 +24,7 @@ const Plantas = () => {
             const userChoice = window.confirm('Ya has completado este tema al 100%. ¿Quieres volver a jugar este tema?, perderás tu progreso');
             if (userChoice) {
                 resetGame(temaIdRequired, preguntaId);
-            } 
+            }
         } else if (game.tema_id >= temaIdRequired) {
             navigate(path);
         } else {
@@ -36,7 +36,7 @@ const Plantas = () => {
         const userID = sessionStorage.getItem('userID');
         try {
             await apiService.updateGame(userID, tema_id, pregunta_id, 3);
-            setGame({ ...game, tema_id: tema_id, pregunta_id: pregunta_id});
+            setGame({ ...game, tema_id: tema_id, pregunta_id: pregunta_id });
             navigate('/pregunta-plantas')
         } catch (error) {
             console.error('Error resetting game data:', error);
@@ -45,12 +45,12 @@ const Plantas = () => {
 
     const getGame = async (id) => {
         try {
-          const response = await apiService.getGame(id);
-          setGame(response.data);
+            const response = await apiService.getGame(id);
+            setGame(response.data);
         } catch (error) {
-          console.error('Error fetching game data:', error);
+            console.error('Error fetching game data:', error);
         }
-      };
+    };
 
     useEffect(() => {
         const userID = sessionStorage.getItem('userID');
@@ -68,9 +68,12 @@ const Plantas = () => {
                 <div className="volver-menu">
                     <button onClick={() => navigate('/principal')}>Volver a Menu Principal</button>
                 </div>
+                <div className="flex justify-center text-white text-5xl font-bold mb-20">
+                    <h1 className="px-8 bg-[#223021a8]">PLANTAS</h1>
+                </div>
                 <div className="opciones-menu-ecosistema">
-                    <div className="E-1" onClick={() => handleNavigation('/pregunta-plantas', 7, progressE1, 25)}>
-                        <h3>Partes de las plantas</h3>
+                    <div className="E-1 px-10 gap-4" onClick={() => handleNavigation('/pregunta-plantas', 7, progressE1, 25)}>
+                        <h3 className="text-2xl">Partes de las plantas</h3>
                         <img src={plantasE1} alt="plantas E1" />
                         <div className="progress-container">
                             <div className="progress-bar" style={{ width: `${progressE1}%` }}>
@@ -78,8 +81,8 @@ const Plantas = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="E-2" onClick={() => handleNavigation('/pregunta-plantas', 8, progressE2, 29)}>
-                        <h3>Función de las plantas</h3>
+                    <div className="E-2 px-10 gap-4" onClick={() => handleNavigation('/pregunta-plantas', 8, progressE2, 29)}>
+                        <h3 className="text-2xl">Función de las plantas</h3>
                         <img src={plantasE2} alt="plantas E2" />
                         <div className="progress-container">
                             <div className="progress-bar" style={{ width: `${progressE2}%` }}>
@@ -87,8 +90,8 @@ const Plantas = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="E-3" onClick={() => handleNavigation('/pregunta-plantas', 9, progressE3, 33)}>
-                        <h3>Producción de oxígeno</h3>
+                    <div className="E-3 px-10 gap-4" onClick={() => handleNavigation('/pregunta-plantas', 9, progressE3, 33)}>
+                        <h3 className="text-2xl">Producción de oxígeno</h3>
                         <img src={plantasE3} alt="plantas E3" />
                         <div className="progress-container">
                             <div className="progress-bar" style={{ width: `${progressE3}%` }}>
