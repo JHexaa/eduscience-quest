@@ -18,8 +18,11 @@ const PreguntaAnimales = () => {
 
         const isCorrect = selectedRespuesta.estado === 'true';
         if (!isCorrect) {
-            alert('Respuesta incorrecta. Intente denuevo.');
+            alert('Respuesta INCORRECTA. Intente denuevo.');
             return;
+        }
+        else {
+            alert('Respuesta CORRECTA. Puedes continuar');
         }
 
         let nextPreguntaId = game.pregunta_id + 1;
@@ -103,7 +106,7 @@ const PreguntaAnimales = () => {
                         <div className="pregunta">
                             <h1>{pregunta.pregunta}</h1>
                         </div>
-                        <div className="respuestas">
+                        <div className="respuestas">336
                             {respuestas.map((respuesta) => (
                                 <div
                                     key={respuesta.id}
