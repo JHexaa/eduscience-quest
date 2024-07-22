@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../Components/Navbar'
 import { useNavigate } from 'react-router-dom';
-import apiService from '../apiService';
 import fotoPerfil from '../assets/images/mono.png'
 
 
@@ -32,14 +31,17 @@ const Users = () => {
     <>
       <Navbar />
       <div className="cuerpo h-screen flex items-center justify-center align-center px-20 py-10">
-        <div className="usuario-info">
-          <div className="usuario-imagen flex justify-center p-20">
-            <img src={fotoPerfil} alt="monkey-animated" className="w-1/5" />
+        <div className="usuario-info px-96">
+          <div className="flex justify-center mt-10">
+            <h1 className="text-5xl text-white ">PERFIL DE USUARIO</h1>
           </div>
-          <div className="mx-96 flex flex-col">
-            <p><strong>NOMBRE:</strong> DAVID</p>
-            <p><strong>APELLIDO:</strong> GARCÍAS</p>
-            <p><strong>CORREO:</strong> david.garcias@gmail.com</p>
+          <div className="usuario-imagen flex justify-center mt-16">
+            <img src={fotoPerfil} alt="monkey-animated" className="w-6/12" />
+          </div>
+          <div className="mx flex flex-col gap-4 mt-10">
+            <p className="text-2xl"><strong>NOMBRE:</strong> {user.nombre.toUpperCase()}</p>
+            <p className="text-2xl"><strong>APELLIDO:</strong> {user.apellido.toUpperCase()}</p>
+            <p className="text-2xl"><strong>CORREO:</strong> {user.email.toUpperCase()}</p>
           </div>
         </div>
       </div>
