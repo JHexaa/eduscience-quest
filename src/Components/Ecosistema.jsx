@@ -19,9 +19,12 @@ const Ecosistema = () => {
     const progressE2 = calculateProgress(game.pregunta_id, 5);
     const progressE3 = calculateProgress(game.pregunta_id, 9);
 
-    const handleNavigation = (path, temaIdRequired, progress) => {
+    const handleNavigation = (path, temaIdRequired, progress, preguntaId) => {
         if (progress === 100) {
-            alert('Ya has completado este tema al 100%. Ya no puedes acceder a este tema.');
+            const userChoice = window.confirm('Ya has completado este tema al 100%. ¿Quieres volver a jugar este tema?, perderás tu progreso');
+            if (userChoice) {
+                resetGame(temaIdRequired, preguntaId);
+            } 
         } else if (game.tema_id >= temaIdRequired) {
             navigate(path);
         } else {
@@ -29,21 +32,32 @@ const Ecosistema = () => {
         }
     };
 
+    const resetGame = async (tema_id, pregunta_id) => {
+        const userID = sessionStorage.getItem('userID');
+        try {
+            await apiService.updateGame(userID, tema_id, pregunta_id, 1);
+            setGame({ ...game, tema_id: tema_id, pregunta_id: pregunta_id});
+            navigate('/pregunta-ecosistema')
+        } catch (error) {
+            console.error('Error resetting game data:', error);
+        }
+    };
+
     const getGame = async (id) => {
         try {
-          const response = await apiService.getGame(id);
-          setGame(response.data);
+            const response = await apiService.getGame(id);
+            setGame(response.data);
         } catch (error) {
-          console.error('Error fetching game data:', error);
+            console.error('Error fetching game data:', error);
         }
-      };
+    };
 
     useEffect(() => {
         const userID = sessionStorage.getItem('userID');
         if (!userID) {
             navigate('/login');
         } else {
-            getGame(userID)
+            getGame(userID);
         }
     }, [navigate]);
 
@@ -55,7 +69,7 @@ const Ecosistema = () => {
                     <button onClick={() => navigate('/principal')}>Volver a Menu Principal</button>
                 </div>
                 <div className="opciones-menu-ecosistema">
-                    <div className="E-1" onClick={() => handleNavigation('/pregunta-ecosistema', 1, progressE1)}>
+                    <div className="E-1" onClick={() => handleNavigation('/pregunta-ecosistema', 1, progressE1, 1)}>
                         <h3>Que es el Ecosistema</h3>
                         <img src={logoE1} alt="Logo E1" />
                         <div className="progress-container">
@@ -64,7 +78,7 @@ const Ecosistema = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="E-2" onClick={() => handleNavigation('/pregunta-ecosistema', 2, progressE2)}>
+                    <div className="E-2" onClick={() => handleNavigation('/pregunta-ecosistema', 2, progressE2, 5)}>
                         <h3>Estructura del Ecosistema</h3>
                         <img src={logoE2} alt="Logo E2" />
                         <div className="progress-container">
@@ -73,7 +87,7 @@ const Ecosistema = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="E-3" onClick={() => handleNavigation('/pregunta-ecosistema', 3, progressE3)}>
+                    <div className="E-3" onClick={() => handleNavigation('/pregunta-ecosistema', 3, progressE3, 9)}>
                         <h3>Protección y <br />conservación</h3>
                         <img src={logoE3} alt="Logo E3" />
                         <div className="progress-container">

@@ -10,14 +10,6 @@ const Animales = () => {
     const [game, setGame] = useState('');
     const navigate = useNavigate();
 
-    const handleNavigation = (path, temaIdRequired) => {
-        if (game.tema_id >= temaIdRequired) {
-            navigate(path);
-        } else {
-            alert('No puedes acceder a este tema aún.');
-        }
-    };
-
     const calculateProgress = (currentPreguntaId, temaStartPreguntaId) => {
         const progress = ((currentPreguntaId - temaStartPreguntaId) / 4) * 100;
         return progress > 100 ? 100 : progress < 0 ? 0 : progress;
@@ -26,6 +18,30 @@ const Animales = () => {
     const progressE1 = calculateProgress(game.pregunta_id, 13);
     const progressE2 = calculateProgress(game.pregunta_id, 17);
     const progressE3 = calculateProgress(game.pregunta_id, 21);
+
+    const handleNavigation = (path, temaIdRequired, progress, preguntaId) => {
+        if (progress === 100) {
+            const userChoice = window.confirm('Ya has completado este tema al 100%. ¿Quieres volver a jugar este tema?, perderás tu progreso');
+            if (userChoice) {
+                resetGame(temaIdRequired, preguntaId);
+            } 
+        } else if (game.tema_id >= temaIdRequired) {
+            navigate(path);
+        } else {
+            alert('No puedes acceder a este tema aún.');
+        }
+    };
+
+    const resetGame = async (tema_id, pregunta_id) => {
+        const userID = sessionStorage.getItem('userID');
+        try {
+            await apiService.updateGame(userID, tema_id, pregunta_id, 2);
+            setGame({ ...game, tema_id: tema_id, pregunta_id: pregunta_id});
+            navigate('/pregunta-animales')
+        } catch (error) {
+            console.error('Error resetting game data:', error);
+        }
+    };
 
     const getGame = async (id) => {
         try {
@@ -53,7 +69,7 @@ const Animales = () => {
                     <button onClick={() => navigate('/principal')}>Volver a Menu Principal</button>
                 </div>
                 <div className="opciones-menu-ecosistema">
-                    <div className="E-1" onClick={() => handleNavigation('/pregunta-animales', 4)}>
+                    <div className="E-1" onClick={() => handleNavigation('/pregunta-animales', 4, progressE1, 13)}>
                         <h3>Tipos de Animales</h3>
                         <img src={AnimalE1} alt="Animal E1" />
                         <div className="progress-container">
@@ -62,7 +78,7 @@ const Animales = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="E-2" onClick={() => handleNavigation('/pregunta-animales', 5)}>
+                    <div className="E-2" onClick={() => handleNavigation('/pregunta-animales', 5, progressE2, 17)}>
                         <h3>Habitats</h3>
                         <img src={AnimalE2} alt="Animal E2" />
                         <div className="progress-container">
@@ -71,7 +87,7 @@ const Animales = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="E-3" onClick={() => handleNavigation('/pregunta-animales', 6)}>
+                    <div className="E-3" onClick={() => handleNavigation('/pregunta-animales', 6, progressE3, 21)}>
                         <h3>Importancia de los animales</h3>
                         <img src={AnimalE3} alt="Animal E3" />
                         <div className="progress-container">
