@@ -100,10 +100,10 @@ const PreguntaAnimales = () => {
                     <button onClick={() => navigate('/animales')}>Volver a Menu </button>
                 </div>
                 <div className="pregunta-ecosistema">
-                    
                     <div className="contenedor-preguntas">
                         <p className="titulo">Pregunta</p>
                         <span className="contador">{pregunta.numero}/4</span>
+                        <h2 className="text-white font-bold text-2xl mt-6">CONTEXTO</h2>
                         <p className="concepto">
                             {pregunta.contexto}
                         </p>

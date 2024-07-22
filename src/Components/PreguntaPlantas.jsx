@@ -24,7 +24,7 @@ const PreguntaPlantas = () => {
         else {
             alert('Respuesta CORRECTA.\nPuedes continuar');
         }
-        
+
         let nextPreguntaId = game.pregunta_id + 1;
         let nextTemaId = game.tema_id;
         let nextCategoriaId = game.categoria_id;
@@ -103,6 +103,7 @@ const PreguntaPlantas = () => {
                     <div className="contenedor-preguntas">
                         <p className="titulo">Pregunta</p>
                         <span className="contador">{pregunta.numero}/4</span>
+                        <h2 className="text-white font-bold text-2xl mt-6">CONTEXTO</h2>
                         <p className="concepto">
                             {pregunta.contexto}
                         </p>
