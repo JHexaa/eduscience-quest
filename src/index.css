@@ -270,6 +270,7 @@ footer {
   flex: 1;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding-top: 50px;
 }
 
@@ -496,7 +497,7 @@ table th {
   border-color: transparent;
   font-size: 20px;
   cursor: pointer;
-  margin-top: 100px;
+  margin-top: 40px;
 }
 
 .volver-menu-tema button:hover {
@@ -530,7 +531,7 @@ table th {
 
 /* Pantalla de preguntas de Ecosistema */
 .pregunta-ecosistema {
-  padding-top: 95px;
+  padding-top: 80px
 }
 
 .contenedor-preguntas {
@@ -541,6 +542,7 @@ table th {
   margin-left: 150px;
   margin-right: 150px;
   border-radius: 25px;
+  padding: 40px 0 40px 0;
 }
 
 .titulo,
@@ -606,11 +608,11 @@ table th {
   background-color: #83C200;
   border: none;
   border-radius: 25px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
   padding-top: 10px;
   padding-bottom: 10px;
-  margin: 20px;
+  margin: 40px;
   cursor: pointer;
 }
 

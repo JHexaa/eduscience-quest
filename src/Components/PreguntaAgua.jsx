@@ -18,11 +18,11 @@ const PreguntaAgua = () => {
 
         const isCorrect = selectedRespuesta.estado === 'true';
         if (!isCorrect) {
-            alert('Respuesta INCORRECTA. Intente denuevo.');
+            alert('Respuesta INCORRECTA.\nIntente denuevo.');
             return;
         }
         else {
-            alert('Respuesta CORRECTA. Puedes continuar');
+            alert('Respuesta CORRECTA.\nPuedes continuar');
         }
 
         let nextPreguntaId = game.pregunta_id + 1;
