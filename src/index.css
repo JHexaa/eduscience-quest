@@ -117,8 +117,22 @@ footer {
   flex-direction: column;
   background-color: rgba(34, 48, 33, 0.658);
   color: white;
-  width: 84%;
+  width: 88%;
   height: 80%;
+  border-radius: 25px;
+}
+
+.usuario-info h1{
+  font-weight: bold;
+  margin-bottom: 10%; ;
+}
+
+.usuario-container{
+  background-color: grey;
+  border-radius: 10%;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 
@@ -171,7 +185,7 @@ footer {
   justify-content: center;
   flex-direction: column;
   border-radius: 25px;
-  height: 480px;
+  height: 450px;
 }
 
 .ecosistema h2,

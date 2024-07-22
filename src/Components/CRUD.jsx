@@ -176,7 +176,6 @@ const CRUD = () => {
                     </div>
                 </div>
             </div>
-            <Footer />
         </>
     );
 };
