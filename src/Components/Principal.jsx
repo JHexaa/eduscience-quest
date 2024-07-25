@@ -1,115 +1,79 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Navbar from '../Components/Navbar';
+import Temas from '../Components/Temas';
 import logoEco from '../assets/images/logo-ecosistema.png';
 import logoAnim from '../assets/images/logo-animales.png';
 import logoPlan from '../assets/images/logo-plantas.png';
 import LogoAgua from '../assets/images/logo-cicloAgua.png';
-import { useNavigate } from 'react-router-dom';
-import apiService from '../apiService';
 
 const Principal = () => {
   const [user, setUser] = useState(null);
-  const [game, setGame] = useState('');
   const navigate = useNavigate();
-
-  const handleNavigation = (path, categoriaIdRequired) => {
-    if (game.categoria_id >= categoriaIdRequired) {
-      navigate(path);
-    } else {
-      alert('No puedes acceder a este tema aún.\nCompleta los temas anteriores para desbloquear.');
-    }
-  };
-
-  const getGame = async (id) => {
-    try {
-      const response = await apiService.getGame(id);
-      setGame(response.data);
-      sessionStorage.setItem('categoria_id', response.data.categoria_id);
-      sessionStorage.setItem('tema_id', response.data.tema_id);
-      sessionStorage.setItem('pregunta_id', response.data.pregunta_id);
-    } catch (error) {
-      console.error('Error fetching game data:', error);
-    }
-  };
 
   useEffect(() => {
     const userID = sessionStorage.getItem('userID');
     const userNombre = sessionStorage.getItem('userNombre');
     const userApellido = sessionStorage.getItem('userApellido');
+
     if (!userID) {
       navigate('/login');
     } else {
       setUser({ id: userID, nombre: userNombre, apellido: userApellido });
-      getGame(userID);
     }
   }, [navigate]);
-
-  if (!user || !game) {
-    return null;
-  }
 
   const cerrarSesion = () => {
     sessionStorage.removeItem('userID');
     navigate('/login');
-  }
+  };
 
   return (
     <>
       <Navbar />
       <div className="cuerpo h-screen flex items-center justify-center align-center px-20 py-10">
         <button
-          onClick={() => cerrarSesion()}
+          onClick={cerrarSesion}
           className="absolute text-l top-56 right-44 px-8 rounded-xl py-4 bg-red-600 text-white hover:bg-red-900"
-        > CERRAR SESION </button>
+        >
+          CERRAR SESIÓN
+        </button>
         <div className="contenedor-menu p-10">
           <div className="parrafo-menu">
-            <h1>BIENVENIDO, {user.nombre.toUpperCase()}</h1>
+            <h1>BIENVENIDO, {user ? `${user.nombre}` : ''}</h1>
             <p className="px-40 pb-10">¡Descubre el mundo a través de la ciencia con EduScience Quest!</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="ecosistema text-center">
-              <h2>Ecosistemas</h2>
-              <img src={logoEco} alt="" />
-              <button
-                onClick={() => handleNavigation('/ecosistema', 1)}
-                className="text-xl mt-6 px-20 rounded-xl py-3 bg-main text-white hover:bg-main-HOVER"
-              >
-                Jugar
-              </button>
-            </div>
-            <div className="animales text-center">
-              <h2>Animales</h2>
-              <img src={logoAnim} alt="" />
-              <button
-                onClick={() => handleNavigation('/animales', 2)}
-                className="text-xl mt-6 px-20 rounded-xl py-3 bg-main text-white hover:bg-main-HOVER"
-              >
-                Jugar
-              </button>
-            </div>
-            <div className="plantas text-center">
-              <h2>Plantas</h2>
-              <img src={logoPlan} alt="" />
-              <button
-                onClick={() => handleNavigation('/plantas', 3)}
-                className="text-xl mt-6 px-20 rounded-xl py-3 bg-main text-white hover:bg-main-HOVER"
-              >
-                Jugar
-              </button>
-            </div>
-            <div className="agua text-center">
-              <h2>Ciclo del Agua</h2>
-              <img src={LogoAgua} alt="" />
-              <button
-                onClick={() => handleNavigation('/agua', 4)}
-                className="text-xl mt-6 px-20 rounded-xl py-3 bg-main text-white hover:bg-main-HOVER"
-              >
-                Jugar
-              </button>
-            </div>
+            <Temas
+              tema="Ecosistema"
+              img={logoEco}
+              navegar="/ecosistema"
+              idTema={1}
+              userID={user ? user.id : ''}
+            />
+            <Temas
+              tema="Animales"
+              img={logoAnim}
+              navegar="/animales"
+              idTema={2}
+              userID={user ? user.id : ''}
+            />
+            <Temas
+              tema="Plantas"
+              img={logoPlan}
+              navegar="/plantas"
+              idTema={3}
+              userID={user ? user.id : ''}
+            />
+            <Temas
+              tema="Ciclo del Agua"
+              img={LogoAgua}
+              navegar="/agua"
+              idTema={4}
+              userID={user ? user.id : ''}
+            />
           </div>
         </div>
-
       </div>
     </>
   );
